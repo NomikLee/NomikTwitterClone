@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0795522BAFCC46008E9F84 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0795512BAFCC46008E9F84 /* TweetTableViewCell.swift */; };
 		6F51EF6F2BACFFE900D47404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF6E2BACFFE900D47404 /* AppDelegate.swift */; };
 		6F51EF712BACFFE900D47404 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF702BACFFE900D47404 /* SceneDelegate.swift */; };
-		6F51EF732BACFFE900D47404 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF722BACFFE900D47404 /* ViewController.swift */; };
-		6F51EF762BACFFE900D47404 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6F51EF752BACFFE900D47404 /* Base */; };
+		6F51EF732BACFFE900D47404 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF722BACFFE900D47404 /* MainTabbarViewController.swift */; };
 		6F51EF782BACFFE900D47404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F51EF772BACFFE900D47404 /* Assets.xcassets */; };
 		6F51EF7B2BACFFE900D47404 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6F51EF7A2BACFFE900D47404 /* Base */; };
+		6F51EF852BAD019B00D47404 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF842BAD019B00D47404 /* HomeViewController.swift */; };
+		6F51EF872BAD01D900D47404 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF862BAD01D900D47404 /* SearchViewController.swift */; };
+		6F51EF892BAD020A00D47404 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF882BAD020A00D47404 /* NotificationsViewController.swift */; };
+		6F51EF8B2BAD025000D47404 /* DirectMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF8A2BAD025000D47404 /* DirectMessagesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F0795512BAFCC46008E9F84 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		6F51EF6B2BACFFE900D47404 /* NomikTwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NomikTwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F51EF6E2BACFFE900D47404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F51EF702BACFFE900D47404 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6F51EF722BACFFE900D47404 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6F51EF752BACFFE900D47404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6F51EF722BACFFE900D47404 /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		6F51EF772BACFFE900D47404 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F51EF7A2BACFFE900D47404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F51EF7C2BACFFE900D47404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F51EF842BAD019B00D47404 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6F51EF862BAD01D900D47404 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		6F51EF882BAD020A00D47404 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		6F51EF8A2BAD025000D47404 /* DirectMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessagesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F07954E2BAFCB67008E9F84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F0795512BAFCC46008E9F84 /* TweetTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6F51EF622BACFFE800D47404 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +72,35 @@
 		6F51EF6D2BACFFE900D47404 /* NomikTwitterClone */ = {
 			isa = PBXGroup;
 			children = (
+				6F07954E2BAFCB67008E9F84 /* Views */,
+				6F51EF822BAD015300D47404 /* Controllers */,
 				6F51EF6E2BACFFE900D47404 /* AppDelegate.swift */,
 				6F51EF702BACFFE900D47404 /* SceneDelegate.swift */,
-				6F51EF722BACFFE900D47404 /* ViewController.swift */,
-				6F51EF742BACFFE900D47404 /* Main.storyboard */,
 				6F51EF772BACFFE900D47404 /* Assets.xcassets */,
 				6F51EF792BACFFE900D47404 /* LaunchScreen.storyboard */,
 				6F51EF7C2BACFFE900D47404 /* Info.plist */,
 			);
 			path = NomikTwitterClone;
+			sourceTree = "<group>";
+		};
+		6F51EF822BAD015300D47404 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F51EF832BAD018000D47404 /* Core */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6F51EF832BAD018000D47404 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				6F51EF722BACFFE900D47404 /* MainTabbarViewController.swift */,
+				6F51EF842BAD019B00D47404 /* HomeViewController.swift */,
+				6F51EF862BAD01D900D47404 /* SearchViewController.swift */,
+				6F51EF882BAD020A00D47404 /* NotificationsViewController.swift */,
+				6F51EF8A2BAD025000D47404 /* DirectMessagesViewController.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +163,6 @@
 			files = (
 				6F51EF782BACFFE900D47404 /* Assets.xcassets in Resources */,
 				6F51EF7B2BACFFE900D47404 /* Base in Resources */,
-				6F51EF762BACFFE900D47404 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +173,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F51EF732BACFFE900D47404 /* ViewController.swift in Sources */,
+				6F51EF872BAD01D900D47404 /* SearchViewController.swift in Sources */,
+				6F51EF732BACFFE900D47404 /* MainTabbarViewController.swift in Sources */,
 				6F51EF6F2BACFFE900D47404 /* AppDelegate.swift in Sources */,
+				6F51EF892BAD020A00D47404 /* NotificationsViewController.swift in Sources */,
 				6F51EF712BACFFE900D47404 /* SceneDelegate.swift in Sources */,
+				6F51EF852BAD019B00D47404 /* HomeViewController.swift in Sources */,
+				6F51EF8B2BAD025000D47404 /* DirectMessagesViewController.swift in Sources */,
+				6F0795522BAFCC46008E9F84 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6F51EF742BACFFE900D47404 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6F51EF752BACFFE900D47404 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6F51EF792BACFFE900D47404 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +329,6 @@
 				INFOPLIST_FILE = NomikTwitterClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +356,6 @@
 				INFOPLIST_FILE = NomikTwitterClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
