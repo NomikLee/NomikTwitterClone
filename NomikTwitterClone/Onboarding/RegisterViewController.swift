@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class RegisterViewController: UIViewController {
+    
+    private var viewModel = RegisterViewViewModel()
+    private var subscription: Set<AnyCancellable> = []
     
     private let registerTitleLabal: UILabel = {
         let label = UILabel()
@@ -49,6 +53,7 @@ class RegisterViewController: UIViewController {
         button.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 25
+        button.isEnabled = false
         return button
     }()
     
@@ -58,8 +63,42 @@ class RegisterViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(registerButton)
-        
+        registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
         configureConstraints()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
+        bindViews()
+    }
+    
+    @objc private func didTapRegister() {
+        viewModel.createUser()
+    }
+    
+    @objc private func didTapToDismiss() {
+        view.endEditing(true)
+    }
+    
+    private func bindViews() {
+        emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
+        viewModel.$isRegistrationFormValid.sink { [weak self] validatinState in
+            self?.registerButton.isEnabled = validatinState
+        }
+        .store(in: &subscription) //這樣可以確保當不再需要監聽 sink 時，可以正確地取消訂閱，從而避免內存泄漏
+        
+        viewModel.$user.sink { [weak self] user in
+            print(user)
+        }
+        .store(in: &subscription)
+    }
+    
+    @objc private func didChangeEmailField() {
+        viewModel.email = emailTextField.text
+        viewModel.validateRegistrationForm()
+    }
+    
+    @objc private func didChangePasswordField() {
+        viewModel.password = passwordTextField.text
+        viewModel.validateRegistrationForm()
     }
     
     private func configureConstraints() {
