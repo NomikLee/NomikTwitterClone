@@ -289,7 +289,3 @@ class ProfileTableViewHeader: UIView {
     }
     
 }
-
-#Preview("mainVC") {
-    MainTabbarViewController()
-}

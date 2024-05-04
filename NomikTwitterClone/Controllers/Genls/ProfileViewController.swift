@@ -99,7 +99,3 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
-#Preview("mainVC") {
-    MainTabbarViewController()
-}

@@ -19,8 +19,9 @@
 		6F51EF892BAD020A00D47404 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF882BAD020A00D47404 /* NotificationsViewController.swift */; };
 		6F51EF8B2BAD025000D47404 /* DirectMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F51EF8A2BAD025000D47404 /* DirectMessagesViewController.swift */; };
 		6F62D2D02BE330D20015D50A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F62D2CF2BE330D20015D50A /* ProfileViewController.swift */; };
-		6F62D2D42BE531140015D50A /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F62D2D32BE531140015D50A /* RegisterViewViewModel.swift */; };
+		6F62D2D42BE531140015D50A /* AuthenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F62D2D32BE531140015D50A /* AuthenticationViewViewModel.swift */; };
 		6F62D2D92BE5D5B60015D50A /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F62D2D82BE5D5B60015D50A /* AuthManager.swift */; };
+		6F62D2DB2BE62F580015D50A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F62D2DA2BE62F580015D50A /* LoginViewController.swift */; };
 		6FCF4D762BE32E4900B2B949 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF4D752BE32E4900B2B949 /* ProfileTableViewHeader.swift */; };
 		6FDF45E42BE4D17D003A37C6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6FDF45E32BE4D17D003A37C6 /* FirebaseAnalytics */; };
 		6FDF45E62BE4D17D003A37C6 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 6FDF45E52BE4D17D003A37C6 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -68,8 +69,9 @@
 		6F51EF882BAD020A00D47404 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		6F51EF8A2BAD025000D47404 /* DirectMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessagesViewController.swift; sourceTree = "<group>"; };
 		6F62D2CF2BE330D20015D50A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6F62D2D32BE531140015D50A /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
+		6F62D2D32BE531140015D50A /* AuthenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewViewModel.swift; sourceTree = "<group>"; };
 		6F62D2D82BE5D5B60015D50A /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		6F62D2DA2BE62F580015D50A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6FCF4D752BE32E4900B2B949 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewHeader.swift; path = NomikTwitterClone/Views/ProfileTableViewHeader.swift; sourceTree = SOURCE_ROOT; };
 		6FDF461A2BE4D57C003A37C6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		6FDF461C2BE4E004003A37C6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +188,7 @@
 		6F62D2D22BE530BF0015D50A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				6F62D2D32BE531140015D50A /* RegisterViewViewModel.swift */,
+				6F62D2D32BE531140015D50A /* AuthenticationViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -222,6 +224,7 @@
 			children = (
 				6FDF461A2BE4D57C003A37C6 /* OnboardingViewController.swift */,
 				6FDF461C2BE4E004003A37C6 /* RegisterViewController.swift */,
+				6F62D2DA2BE62F580015D50A /* LoginViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				6F51EF872BAD01D900D47404 /* SearchViewController.swift in Sources */,
 				6F62D2D92BE5D5B60015D50A /* AuthManager.swift in Sources */,
 				6F51EF732BACFFE900D47404 /* MainTabbarViewController.swift in Sources */,
+				6F62D2DB2BE62F580015D50A /* LoginViewController.swift in Sources */,
 				6F62D2D02BE330D20015D50A /* ProfileViewController.swift in Sources */,
 				6FDF461D2BE4E004003A37C6 /* RegisterViewController.swift in Sources */,
 				6F51EF6F2BACFFE900D47404 /* AppDelegate.swift in Sources */,
@@ -339,7 +343,7 @@
 				6F51EF712BACFFE900D47404 /* SceneDelegate.swift in Sources */,
 				6F51EF852BAD019B00D47404 /* HomeViewController.swift in Sources */,
 				6F51EF8B2BAD025000D47404 /* DirectMessagesViewController.swift in Sources */,
-				6F62D2D42BE531140015D50A /* RegisterViewViewModel.swift in Sources */,
+				6F62D2D42BE531140015D50A /* AuthenticationViewViewModel.swift in Sources */,
 				6FCF4D762BE32E4900B2B949 /* ProfileTableViewHeader.swift in Sources */,
 				6FDF461B2BE4D57C003A37C6 /* OnboardingViewController.swift in Sources */,
 				6F0795522BAFCC46008E9F84 /* TweetTableViewCell.swift in Sources */,

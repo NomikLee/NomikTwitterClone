@@ -1,22 +1,22 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  NomikTwitterClone
 //
-//  Created by Pinocchio on 2024/5/3.
+//  Created by Pinocchio on 2024/5/4.
 //
 
 import UIKit
 import Combine
 
-class RegisterViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     private var viewModel = AuthenticationViewViewModel()
     private var subscription: Set<AnyCancellable> = []
     
-    private let registerTitleLabal: UILabel = {
+    private let loginTitleLabal: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Create your account"
+        label.text = "Login your account"
         label.font = .systemFont(ofSize: 32, weight: .bold)
         return label
     }()
@@ -44,10 +44,10 @@ class RegisterViewController: UIViewController {
         return textField
     }()
     
-    private let registerButton: UIButton = {
+    private let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Creat account", for: .normal)
+        button.setTitle("Login", for: .normal)
         button.tintColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
@@ -57,31 +57,11 @@ class RegisterViewController: UIViewController {
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(registerTitleLabal)
-        view.addSubview(emailTextField)
-        view.addSubview(passwordTextField)
-        view.addSubview(registerButton)
-        registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
-        configureConstraints()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
-        bindViews()
-    }
-    
-    @objc private func didTapRegister() {
-        viewModel.createUser()
-    }
-    
-    @objc private func didTapToDismiss() {
-        view.endEditing(true)
-    }
-    
     private func bindViews() {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
         viewModel.$isAuthenticationFormValid.sink { [weak self] validatinState in
-            self?.registerButton.isEnabled = validatinState
+            self?.loginButton.isEnabled = validatinState
         }
         .store(in: &subscription) //這樣可以確保當不再需要監聽 sink 時，可以正確地取消訂閱，從而避免內存泄漏
         
@@ -115,14 +95,31 @@ class RegisterViewController: UIViewController {
         viewModel.password = passwordTextField.text
         viewModel.validateAuthenticationForm()
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        view.addSubview(loginTitleLabal)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(loginButton)
+        loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        configureConstraints()
+        bindViews()
+        
+    }
+    
+    @objc private func didTapLogin() {
+        viewModel.loginUser()
+    }
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-            registerTitleLabal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            registerTitleLabal.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            loginTitleLabal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginTitleLabal.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emailTextField.topAnchor.constraint(equalTo: registerTitleLabal.bottomAnchor, constant: 20),
+            emailTextField.topAnchor.constraint(equalTo: loginTitleLabal.bottomAnchor, constant: 20),
             emailTextField.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
             emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emailTextField.heightAnchor.constraint(equalToConstant: 60),
@@ -133,12 +130,12 @@ class RegisterViewController: UIViewController {
             passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 60),
             
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
-            registerButton.widthAnchor.constraint(equalToConstant: 180),
-            registerButton.heightAnchor.constraint(equalToConstant: 50)
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            loginButton.widthAnchor.constraint(equalToConstant: 180),
+            loginButton.heightAnchor.constraint(equalToConstant: 50)
             
         ])
-        
     }
+    
 }
