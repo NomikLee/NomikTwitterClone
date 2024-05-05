@@ -80,6 +80,7 @@ class RegisterViewController: UIViewController {
     private func bindViews() {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
+        
         viewModel.$isAuthenticationFormValid.sink { [weak self] validatinState in
             self?.registerButton.isEnabled = validatinState
         }

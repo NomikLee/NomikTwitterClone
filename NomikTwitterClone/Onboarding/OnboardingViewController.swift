@@ -92,7 +92,6 @@ class OnboardingViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: promptLabel.trailingAnchor, constant: 10),
             loginButton.centerYAnchor.constraint(equalTo: promptLabel.centerYAnchor)
             
-            
         ])
         
     }

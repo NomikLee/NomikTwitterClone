@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import Combine
 
-final class AuthenticationViewViewModel:ObservableObject {
+final class AuthenticationViewViewModel: ObservableObject {
     
     @Published var email: String?
     @Published var password: String?
@@ -36,12 +36,27 @@ final class AuthenticationViewViewModel:ObservableObject {
     
     func createUser() {
         guard let email = email, let password = password else { return }
-        AuthManager.shared.registerUser(with: email, password: password).sink { [weak self] completion in
+        AuthManager.shared.registerUser(with: email, password: password)
+            .handleEvents(receiveOutput: { [weak self] user in
+                self?.user = user
+            })
+            .sink { [weak self] completion in
+                if case .failure(let error) = completion {
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { [weak self] user in
+                self?.createRecord(for: user)
+            }
+            .store(in: &subscription)
+    }
+    
+    func createRecord(for user: User) {
+        DatabaseManager.shared.collectionUsers(add: user).sink { [weak self] completion in
             if case .failure(let error) = completion {
                 self?.error = error.localizedDescription
             }
-        } receiveValue: { [weak self] user in
-            self?.user = user
+        } receiveValue: { state in
+            print("Adding user record to database: \(state)")
         }
         .store(in: &subscription)
     }
