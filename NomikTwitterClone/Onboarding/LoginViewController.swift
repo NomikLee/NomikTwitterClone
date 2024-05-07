@@ -11,7 +11,7 @@ import Combine
 class LoginViewController: UIViewController {
     
     private var viewModel = AuthenticationViewViewModel()
-    private var subscription: Set<AnyCancellable> = []
+    private var subscriptions: Set<AnyCancellable> = []
     
     private let loginTitleLabal: UILabel = {
         let label = UILabel()
@@ -64,20 +64,20 @@ class LoginViewController: UIViewController {
         viewModel.$isAuthenticationFormValid.sink { [weak self] validatinState in
             self?.loginButton.isEnabled = validatinState
         }
-        .store(in: &subscription) //這樣可以確保當不再需要監聽 sink 時，可以正確地取消訂閱，從而避免內存泄漏
+        .store(in: &subscriptions) //這樣可以確保當不再需要監聽 sink 時，可以正確地取消訂閱，從而避免內存泄漏
         
         viewModel.$user.sink { [weak self] user in
             guard user != nil else { return }
             guard let vc = self?.navigationController?.viewControllers.first as? OnboardingViewController else { return }
             vc.dismiss(animated: true)
         }
-        .store(in: &subscription)
+        .store(in: &subscriptions)
         
         viewModel.$error.sink { [weak self] errorString in
             guard let error = errorString else { return }
             self?.presentAlert(with: error)
         }
-        .store(in: &subscription)
+        .store(in: &subscriptions)
     }
     
     private func presentAlert(with error: String) {

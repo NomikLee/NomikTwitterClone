@@ -17,7 +17,7 @@ final class AuthenticationViewViewModel: ObservableObject {
     @Published var user: User?
     @Published var error: String?
     
-    private var subscription: Set<AnyCancellable> = []
+    private var subscriptions: Set<AnyCancellable> = []
     
     func validateAuthenticationForm() {
         guard let email = email, let password = password else { 
@@ -47,7 +47,7 @@ final class AuthenticationViewViewModel: ObservableObject {
             } receiveValue: { [weak self] user in
                 self?.createRecord(for: user)
             }
-            .store(in: &subscription)
+            .store(in: &subscriptions)
     }
     
     func createRecord(for user: User) {
@@ -58,7 +58,7 @@ final class AuthenticationViewViewModel: ObservableObject {
         } receiveValue: { state in
             print("Adding user record to database: \(state)")
         }
-        .store(in: &subscription)
+        .store(in: &subscriptions)
     }
     
     func loginUser() {
@@ -70,6 +70,6 @@ final class AuthenticationViewViewModel: ObservableObject {
         } receiveValue: { [weak self] user in
             self?.user = user
         }
-        .store(in: &subscription)
+        .store(in: &subscriptions)
     }
 }

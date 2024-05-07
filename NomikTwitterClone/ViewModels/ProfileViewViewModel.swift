@@ -1,16 +1,15 @@
 //
-//  HomeViewViewModel.swift
+//  ProfileViewViewModel.swift
 //  NomikTwitterClone
 //
-//  Created by Pinocchio on 2024/5/5.
+//  Created by Pinocchio on 2024/5/7.
 //
 
 import Foundation
 import Combine
-import FirebaseAuth
 
-final class HomeViewViewModel: ObservableObject {
-        
+final class ProfileViewViewModel: ObservableObject {
+    
     @Published var user: TwitterUser?
     @Published var error: String?
     
@@ -28,4 +27,5 @@ final class HomeViewViewModel: ObservableObject {
             }
             .store(in: &subscriptions)
     }
+    
 }
